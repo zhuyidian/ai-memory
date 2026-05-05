@@ -1,4 +1,4 @@
-﻿# AI 记忆库
+# AI 记忆库
 
 ## 记忆状态
 - 状态：active
@@ -11,21 +11,21 @@
 - 目标是沉淀跨项目稳定成立的个人判断、公司方法、领域经验和可复用模板。
 - 它不是任务系统，不替代项目内 `AGENTS.md`、`CLAUDE.md`、`tasks/`、`workflows/` 和项目内 `memory/`。
 
-## 先看这些
-- `usage-guide.md`
-- `load-strategy.md`
-- `knowledge-intake-checklist.md`
-
-## 默认读取集
-- `personal/decision-rules.md`
-- `company/delivery-system.md`
+## 读取策略
+- 使用方法见 `usage-guide.md`。
+- 默认读取集和按需读取策略见 `load-strategy.md`，本文件不重复定义。
 
 ## 记忆地图
-- `personal/`：我的长期判断方式、取舍标准、工作习惯
-- `company/`：我的 AI 公司交付系统、质量线、生命周期、报价原则
+- `personal/`：我的长期判断方式与取舍标准
+- `company/`：我的 AI 公司交付系统、质量线、生命周期、报价原则、协作协议与项目初始化
 - `domains/`：某类项目的稳定打法、架构套路、回归热点、验证路径
 - `templates/`：任务、评审、交付、复盘、估时模板
 - `retros/`：还没坐实、但值得继续观察的规律池
+
+## 按需读取入口
+- `company/quality-bar.md`：质量线、失败模式、复核问题
+- `company/pricing-principles.md`：报价分层、风险定价
+- `company/project-lifecycle.md`：项目阶段顺序的唯一主文档
 
 ## 领域入口
 - Android 输入法：
@@ -36,14 +36,19 @@
   - `domains/android-ime/ui-alignment-rules.md`
 
 ## 项目启动入口
-- `company/project-bootstrap-standard.md`
+- `company/project-lifecycle.md`：项目阶段顺序
+- `company/project-bootstrap-standard.md`：新项目初始化标准流程
+- `company/agent-shortcut-protocol.md`：Claude / Codex 快捷词协议
+
+## 复盘入口
+- `retros/stable-patterns.md`：候选稳定规律池
+
 ## 模板入口
 - `templates/task-template.md`
 - `templates/review-template.md`
 - `templates/handoff-template.md`
 - `templates/retrospective-template.md`
 - `templates/estimation-template.md`
-- `company/agent-shortcut-protocol.md`
 - `templates/project-agents-template.md`
 - `templates/project-claude-template.md`
 - `templates/project-memory-index-template.md`
@@ -54,24 +59,8 @@
 - `templates/workflow-review-checklist-template.md`
 - `templates/workflow-parallel-template.md`
 
-## 升级路径
-- 一次性结论：留在 task、handoff 或项目上下文
-- 项目专属稳定知识：进入项目内 `memory/`
-- 还没坐实但值得观察：进入 `retros/stable-patterns.md`
-- 跨项目稳定知识：升级到全局 `ai-memory`
-- 必须长期强制遵守的内容：进入项目 `AGENTS.md` 或团队规则文件
-
-## 不该放什么
-- 客户隐私
-- 单个项目专属实现细节
-- 没验证过的猜测
-- 临时 workaround
-- 长篇流水账式复盘
+## 知识收录与升级
+- 知识收录判断、升级路径和不该放什么，见 `knowledge-intake-checklist.md`，本文件不重复定义。
 
 ## 最后复核
 - 2026-04-30
-
-
-
-
-
