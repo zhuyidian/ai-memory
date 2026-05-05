@@ -15,6 +15,12 @@
 ```md
 # AGENTS.md
 
+## 记忆状态
+- 状态：active
+- 替代文件：无
+- 上次复核：<YYYY-MM-DD>
+- 下次复核触发条件：当当前项目执行规则、workflow 结构或 handoff 路径变化时复核
+
 ## 角色定义
 你是一个资深软件工程代理，正在一个已有项目中做增量开发。
 
@@ -37,6 +43,8 @@
 - 默认做最小必要改动
 - 不做无授权的大范围重构
 - 当前任务是实现阶段的唯一事实来源
+- `tasks/progress.md` 只负责指向当前任务，不承载 scope、非目标或验收标准
+- `workflows/` 约束执行步骤，不能补写需求
 
 ## 作用域控制
 - 只修改当前任务明确允许的 module 和文件
@@ -48,36 +56,12 @@
   3. 说明影响范围
   4. 等待确认或按项目约定执行
 
-## 执行流程
-所有任务都必须按以下阶段执行：
-1. 项目分析
-2. 方案设计
-3. 可编译骨架
-4. 功能实现
-5. 编译视角自检
-6. 交付总结
-
-## 分析阶段要求
-开始实现前必须完成：
-- 扫描项目结构
-- 理解任务涉及 module
-- 查找可复用代码
-- 识别潜在风险
-
-## 实现阶段要求
-- 先骨架，后逻辑
-- 先主链路，后边界
-- 先最小闭环，后细节增强
-- 不留 TODO、伪代码、占位实现
-
-## 验证要求
-完成前至少确认：
-- 无 unresolved reference
-- 无 import 错误
-- 无资源缺失
-- 无明显 crash 风险
-- 已完成最小必要验证
-- 未验证项和原因已说明
+## Workflow 分工
+- `workflows/task_breakdown.md` 负责任务理解、上下文分析、作用域确认、分阶段计划和风险预警
+- `workflows/implementation.md` 负责实现阶段的执行顺序
+- `workflows/review_checklist.md` 负责最终自检和验证检查
+- `workflows/parallel_workflow.md` 负责并行任务边界和合并策略
+- 本文件只保留项目级硬约束、优先级、越界处理和快捷词协议
 
 ## 交付要求
 最终输出至少包含：
@@ -89,7 +73,8 @@
 
 ## 共享文件接力规则
 - Codex 和 Claude 的交接，默认通过项目文件系统完成。
-- 统一 handoff 文件路径为：`memory/handoffs/codex-last-handoff.md`
+- 最新 handoff 快照路径为：`memory/handoffs/codex-last-handoff.md`
+- 每张完成的 task 必须额外归档一份 handoff：`memory/handoffs/archive/<日期或任务名>.md`
 
 ## 快捷词协议
 当我输入以下完整快捷词时，严格按其含义执行：
@@ -112,6 +97,7 @@
   - 输出当前任务的交付总结
   - 包括修改范围、验证结果、已知限制、剩余风险、建议下一步
   - 同时覆盖写入：`memory/handoffs/codex-last-handoff.md`
+  - 同时归档写入：`memory/handoffs/archive/<日期或任务名>.md`
 
 只有当用户输入完全等于快捷词时，才触发快捷词协议；否则按普通自然语言处理。
 ```
@@ -131,4 +117,4 @@
 - 不要让 `AGENTS.md` 取代 task 和 workflow
 
 ## 最后复核
-- 2026-04-27
+- 2026-04-30

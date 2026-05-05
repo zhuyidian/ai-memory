@@ -1,9 +1,20 @@
 ﻿# Agent 快捷词协议
 
+## 记忆状态
+- 状态：active
+- 替代文件：无
+- 上次复核：2026-04-30
+- 下次复核触发条件：当快捷词集合、交接文件路径或 Claude/Codex 分工变化时复核
+
 ## 目的
 - 这份文件定义 Claude 和 Codex 的固定快捷词协议。
 - 目标是用最少的固定词，驱动稳定的双窗口协作流程。
 - 快捷词是全局元协议，不依赖某个具体项目先存在。
+
+## 生命周期来源
+- 项目阶段顺序以 `company/project-lifecycle.md` 为唯一主文档。
+- 本文件只定义快捷词含义、触发条件和 Claude/Codex 交接规则。
+- 新项目骨架生成细节以 `company/project-bootstrap-standard.md` 为准。
 
 ## 触发规则
 - 只有当用户输入完全等于某个快捷词时，才触发对应协议。
@@ -13,7 +24,8 @@
 ## 共享文件接力规则
 - 不依赖跨窗口会话内存传递信息。
 - Codex 与 Claude 的交接，默认通过项目内共享文件完成。
-- 统一 handoff 文件路径为：`memory/handoffs/codex-last-handoff.md`
+- 最新 handoff 快照路径为：`memory/handoffs/codex-last-handoff.md`
+- 每张完成的 task 必须额外归档一份 handoff：`memory/handoffs/archive/<日期或任务名>.md`
 
 ## Claude 快捷词
 
@@ -96,36 +108,21 @@
 含义：
 - 输出当前任务的交付总结
 - 包括修改范围、验证结果、已知限制、剩余风险、建议下一步
-- 同时覆盖写入：`memory/handoffs/codex-last-handoff.md`
+- 同时覆盖写入最新快照：`memory/handoffs/codex-last-handoff.md`
+- 同时归档写入：`memory/handoffs/archive/<日期或任务名>.md`
 
 规则：
 - handoff 文件应始终表示“最近一次交付结果”
-- 如果项目内还没有 `memory/handoffs/`，应先创建后再写入
+- 如果项目内还没有 `memory/handoffs/` 或 `memory/handoffs/archive/`，应先创建后再写入
 - handoff 文件是 Claude 做 `CC_RETRO` 的默认输入
 
-## 标准使用顺序
-
-### 新项目
-1. Claude: `CC_SCOPE`
-2. Claude: `CC_NEXT`
-3. Codex: `CX_BREAKDOWN`
-4. Codex: `CX_BUILD`
-5. Codex: `CX_VERIFY`
-6. Codex: `CX_HANDOFF`
-7. Claude: `CC_RETRO`
-
-### 老项目新任务
-1. Claude: `CC_SCOPE` 或 `CC_AUDIT`
-2. Claude: `CC_NEXT`
-3. Codex: `CX_BREAKDOWN`
-4. Codex: `CX_BUILD`
-5. Codex: `CX_VERIFY`
-6. Codex: `CX_HANDOFF`
-7. Claude: `CC_RETRO`
+## 使用顺序来源
+- 新项目协作顺序见 `company/project-bootstrap-standard.md`。
+- 老项目新任务应遵循 `company/project-lifecycle.md` 的阶段顺序，并按需使用本文件的快捷词。
 
 ## 角色分工
 - Claude 负责：收敛需求、任务设计、只读审查、复盘、记忆升级
 - Codex 负责：当前任务实现、验证、交付
 
 ## 最后复核
-- 2026-04-27
+- 2026-04-30

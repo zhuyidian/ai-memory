@@ -1,9 +1,20 @@
 ﻿# 项目初始化标准流程
 
+## 记忆状态
+- 状态：active
+- 替代文件：无
+- 上次复核：2026-04-30
+- 下次复核触发条件：当项目骨架文件职责、快捷词协议或任务事实源规则变化时复核
+
 ## 目的
 - 这份文档定义“新接一个项目时，Claude 和 Codex 如何从 0 到 1 建立可执行骨架”。
 - 目标不是直接写代码，而是先把项目规则、任务体系和执行流程搭起来。
 - 这份流程适用于你的 `ai-memory` 工作方式，尤其适用于“Claude 先收敛，Codex 后执行”的模式。
+
+## 生命周期来源
+- 项目阶段顺序以 `company/project-lifecycle.md` 为唯一主文档。
+- 本文件只定义新项目如何生成 `CLAUDE.md`、`AGENTS.md`、`tasks/`、`workflows/` 和项目 `memory/`。
+- 快捷词含义以 `company/agent-shortcut-protocol.md` 为准。
 
 ## 触发条件
 当一个项目目录里还没有这些关键文件时，视为”未初始化项目”：
@@ -23,8 +34,10 @@
 - 先收敛范围，再生成骨架，再进入执行。
 - 项目内文件一旦生成，就成为执行阶段的事实来源。
 - 全局 `ai-memory` 负责方法论，项目内文件负责当前项目落地。
+- 当前 task 正文是 scope、非目标、验收标准和修改边界的唯一来源。
+- `tasks/progress.md` 只负责指向当前 task 文件名和执行状态，不承载需求细节。
 
-## 标准顺序
+## 新项目协作顺序
 1. Claude: `CC_SCOPE`
 2. Claude: `CC_NEXT`
 3. Codex: `CX_BREAKDOWN`
@@ -67,7 +80,7 @@
 - `CLAUDE.md`（参考 `templates/project-claude-template.md`）
 - `AGENTS.md`（参考 `templates/project-agents-template.md`）
 - `tasks/`（至少包含：
-  - `tasks/progress.md`，用于声明当前只能执行哪一张 task，参考 `templates/project-progress-template.md`
+  - `tasks/progress.md`，用于指向当前只能执行哪一张 task，参考 `templates/project-progress-template.md`
   - 当前第一张 task，参考 `templates/task-template.md`
   ）
 - `workflows/`（参考：
@@ -79,7 +92,7 @@
 
 建议输出：
 - `tasks/_template.md`（参考 `templates/task-template.md`，供后续任务复用）
-- 当前第一张 task 的文件名与目标应在 `tasks/progress.md` 中同步声明
+- 当前第一张 task 的文件名应在 `tasks/progress.md` 中同步声明
 - 项目内 `memory/` 骨架（参考 `templates/project-memory-index-template.md`，如果项目复杂度需要）
 - `memory/handoffs/README.md`（参考 `templates/project-handoffs-readme-template.md`，如果项目采用双窗口协作）
 
@@ -87,7 +100,7 @@
 - `AGENTS.md`（参考 `templates/project-agents-template.md`） 必须包含 `CX_*` 执行协议
 - `CLAUDE.md`（参考 `templates/project-claude-template.md`） 应导入 `@AGENTS.md`
 - 每张 task 必须遵循 `templates/task-template.md` 的稳定章节，至少写清：任务目标、背景问题、指定 module、允许修改范围、禁止修改范围、当前实现约束、非目标、建议修改范围、验收标准、输出要求
-- `tasks/progress.md` 必须明确“当前任务只能有一个”，避免执行阶段出现多张并行当前任务
+- `tasks/progress.md` 必须明确“当前任务只能有一个”，但不能写入或改写 task 的 scope、非目标、验收标准
 - 当前项目一旦生成这些文件，后续执行以项目内文件为准
 
 ### 阶段 3：当前任务拆解
@@ -153,7 +166,7 @@ project/
 - `CLAUDE.md`（参考 `templates/project-claude-template.md`）：Claude 的项目入口，导入共享规则和必要记忆
 - `AGENTS.md`（参考 `templates/project-agents-template.md`）：Codex 的执行规则源，同时承载 `CX_*` 协议
 - `tasks/`：当前项目的任务事实来源，其中：
-  - `tasks/progress.md`（参考 `templates/project-progress-template.md`）负责声明当前任务、已完成任务和执行入口
+  - `tasks/progress.md`（参考 `templates/project-progress-template.md`）负责指向当前任务、已完成任务和执行入口
   - `tasks/_template.md`（参考 `templates/task-template.md`）负责给后续任务复用统一结构
   - 每张 task（参考 `templates/task-template.md`）必须遵循稳定章节，至少覆盖任务目标、背景问题、指定 module、允许修改范围、禁止修改范围、当前实现约束、非目标、建议修改范围、验收标准、输出要求
 - `workflows/`（参考：
@@ -167,13 +180,10 @@ project/
 ## 不要这样做
 - 不要在项目未初始化时就让 Codex 开始实现
 - 不要让 Claude 在已有当前 task 后继续重写 scope
+- 不要把 task 的 scope、非目标或验收标准写进 `tasks/progress.md`
 - 不要把全局 `ai-memory` 直接当成项目执行文件
 - 不要把项目专属知识直接升级到全局记忆
 
 ## 最后复核
-- 2026-04-27
-
-
-
-
+- 2026-04-30
 

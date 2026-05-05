@@ -39,7 +39,7 @@
 
 ## 共享 handoff 规则
 - 最新交付结果默认写到：`handoffs/codex-last-handoff.md`
-- 如需要长期保留，可额外归档到：`handoffs/archive/`
+- 每张已完成 task 必须额外归档到：`handoffs/archive/<日期或任务名>.md`
 - Claude 做 `CC_RETRO` 时，默认先读取 `handoffs/codex-last-handoff.md`
 
 ## 升级规则
@@ -64,4 +64,4 @@
 - 不要把客户敏感信息长期写进项目 memory
 
 ## 最后复核
-- 2026-04-27
+- 2026-04-30
