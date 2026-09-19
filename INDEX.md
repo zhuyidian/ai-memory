@@ -12,20 +12,17 @@
 - 它不是任务系统，不替代项目内 `AGENTS.md`、`CLAUDE.md`、`tasks/`、`workflows/` 和项目内 `memory/`。
 
 ## 读取策略
-- 使用方法见 `usage-guide.md`。
-- 默认读取集和按需读取策略见 `load-strategy.md`，本文件不重复定义。
+- 加载策略、写回规则、快速路径和维护建议见 `load-strategy.md`，本文件不重复定义。
+- 按需读取的触发条件和强制前置规则以 `load-strategy.md` 为准，本文件不再单独列出。
 
 ## 记忆地图
 - `personal/`：我的长期判断方式与取舍标准
+  - `personal/decision-rules.md`：个人决策规则（默认加载）
 - `company/`：我的 AI 公司交付系统、质量线、生命周期、报价原则、协作协议与项目初始化
+  - `company/delivery-system.md`：交付系统（默认加载）
 - `domains/`：某类项目的稳定打法、架构套路、回归热点、验证路径
 - `templates/`：任务、评审、交付、复盘、估时模板
 - `retros/`：还没坐实、但值得继续观察的规律池
-
-## 按需读取入口
-- `company/quality-bar.md`：质量线、失败模式、复核问题
-- `company/pricing-principles.md`：报价分层、风险定价
-- `company/project-lifecycle.md`：项目阶段顺序的唯一主文档
 
 ## 领域入口
 - Android 输入法：
@@ -34,11 +31,14 @@
   - `domains/android-ime/task-splitting-guide.md`
   - `domains/android-ime/verification-paths.md`
   - `domains/android-ime/ui-alignment-rules.md`
+- AI API 中转站（candidate，启动阶段按需读取）：
+  - `domains/ai-api-gateway/architecture-patterns.md`
+  - `domains/ai-api-gateway/regression-hotspots.md`
+  - `domains/ai-api-gateway/task-splitting-guide.md`
+  - `domains/ai-api-gateway/verification-paths.md`
 
 ## 项目启动入口
-- `company/project-lifecycle.md`：项目阶段顺序
-- `company/project-bootstrap-standard.md`：新项目初始化标准流程
-- `company/agent-shortcut-protocol.md`：Claude / Codex 快捷词协议
+- 见 `load-strategy.md` section 2
 
 ## 复盘入口
 - `retros/stable-patterns.md`：候选稳定规律池
@@ -63,4 +63,4 @@
 - 知识收录判断、升级路径和不该放什么，见 `knowledge-intake-checklist.md`，本文件不重复定义。
 
 ## 最后复核
-- 2026-04-30
+- 2026-05-06

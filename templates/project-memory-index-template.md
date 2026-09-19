@@ -44,7 +44,7 @@
 
 ## 升级规则
 - 只在当前项目成立：留在项目 memory
-- 跨项目稳定成立：升级到 `E:/project/ai-memory`
+- 跨项目稳定成立：升级到 `E:/project/AIProjet/ai-memory`
 - 必须长期强制遵守：升级到项目 `AGENTS.md`
 
 ## 什么时候更新

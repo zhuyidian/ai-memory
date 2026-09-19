@@ -49,7 +49,7 @@
 ## 记忆升级规则
 - task 内临时结论留在 task
 - 项目专属稳定知识进入项目 `memory/`
-- 跨项目稳定知识进入 `E:\project\ai-memory`
+- 跨项目稳定知识进入 `E:\project\AIProjet\ai-memory`
 - 必须长期遵守的规则进入 `AGENTS.md` 或团队规范文件
 
 ## 复用规则
